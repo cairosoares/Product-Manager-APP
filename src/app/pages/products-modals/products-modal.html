@@ -1,0 +1,93 @@
+@if (isOpen) {
+  <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    
+    <div class="bg-[#363636] w-full max-w-4xl rounded-2xl p-6 shadow-xl">
+      
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-white text-lg font-semibold">
+          {{ 'Editar Produto' }}
+        </h2>
+
+        <button
+          class="text-gray-300 hover:text-white"
+          (click)="onClose()"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Form -->
+      <form [formGroup]="modalForm" class="flex flex-col gap-6">
+        
+        <!-- Nome -->
+        <div class="flex flex-col gap-1">
+          <span class="text-gray-300 text-sm">Nome</span>
+          <input
+            class="bg-[#2a2a2a] text-white p-2 rounded-lg focus:outline-none"
+            formControlName="title"
+            placeholder="Nome do produto"
+          />
+        </div>
+
+        <!-- Preço -->
+        <div class="flex flex-col gap-1">
+          <span class="text-gray-300 text-sm">Preço</span>
+          <input
+            type="number"
+            class="bg-[#2a2a2a] text-white p-2 rounded-lg focus:outline-none"
+            formControlName="price"
+          />
+        </div>
+
+        <!-- Estoque -->
+        <div class="flex flex-col gap-1">
+          <span class="text-gray-300 text-sm">Quantidade</span>
+          <input
+            type="number"
+            class="bg-[#2a2a2a] text-white p-2 rounded-lg focus:outline-none"
+            formControlName="stock"
+          />
+        </div>
+
+        <!-- Descrição -->
+        <div class="flex flex-col gap-1">
+          <span class="text-gray-300 text-sm">Descrição</span>
+          <textarea
+            rows="3"
+            class="bg-[#2a2a2a] text-white p-2 rounded-lg focus:outline-none"
+            formControlName="description"
+          ></textarea>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex justify-end gap-2 mt-4">
+          <button
+            type="button"
+            class="px-4 py-2 rounded-lg bg-gray-500 text-white"
+            (click)="onClose()"
+          >
+            Cancelar
+          </button>
+
+          <button
+            type="button"
+            class="px-4 py-2 rounded-lg bg-red-400 text-white"
+            (click)="onDelete()"
+          >
+            Deletar
+          </button>
+
+          <button
+            type="button"
+            class="px-4 py-2 rounded-lg bg-blue-600 text-white"
+            (click)="onSave()"
+          >
+            Salvar
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+}
